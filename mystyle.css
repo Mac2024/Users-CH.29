@@ -60,4 +60,7 @@ button{
     border: none;
     color: white;
 }
+.input-error{
+    border: 1px solid red;
+}
 /* this is the */
