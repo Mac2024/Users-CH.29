@@ -14,6 +14,7 @@ function isValid(user){
     //return true when the user is valid
     let valid=true;
     //add validation for email,pass,fname,lname
+
     if(user.email.length==0){
         valid=false;
         console.log("Please add an email");
@@ -24,12 +25,12 @@ function isValid(user){
         console.log("Please add a password");
         $("input").addClass("input-error");
     }
-    if(user.fName.length==0){
+    if(user.firstName.length==0){
         valid=false;
         console.log("Please add your first name");
         $("input").addClass("input-error");
     }
-    if(user.lName.length==0){
+    if(user.lastName.length==0){
         valid=false;
         console.log("Please add your last name");
         $("input").addClass("input-error");
@@ -50,11 +51,10 @@ function isValid(user){
 function register(){
     let userName = $("#txtEmail").val();
     let userPass = $("#txtPassword").val();
-    let userFirstName =$("txtFirstName").val();
-    let userLastName = $("txtLastName").val();
-    let userAge = $("txtAge").val();
-    let userAddress = $("txtAddress").val();
-    
+    let userFirstName =$("#txtFirstName").val();
+    let userLastName = $("#txtLastName").val();
+    let userAge = $("#txtAge").val();
+    let userAddress = $("#txtAddress").val();
     
     //creating the obj
     let newUser = new User(userName, userPass, userFirstName,userLastName, userAge, userAddress);
@@ -71,7 +71,7 @@ function init(){
     console.log("Register");
     //hook events
     $("#btnRegister").click(register);
-    $("#txtLastName").keyPress(function(e){
+    $("#txtLastName").keypress(function(e){
         console.log(e.key);
         if(e.key=="Enter"){
             register();
